@@ -1,0 +1,20 @@
+<%= form_for @page do |form| %>
+  <% if @page.errors.any? %>
+    <% @page.errors.full_messages.each do |message| %>
+      <<%= message %>
+    <% end %>
+  <% end %>
+
+  <%= form.label :name %></br>
+  <%= form.text_field :name %></br>
+
+  <%= form.label :title %></br>
+  <%= form.text_field :title %></br>
+
+  <%= form.label :content %></br>
+  <%= form.text_area :content %></br>
+
+  <%= form.submit %>
+<% end %>
+</br>
+<%= link_to 'Back', root_path %>
