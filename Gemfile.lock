@@ -45,7 +45,7 @@ GEM
     ancestry (2.2.2)
       activerecord (>= 3.0.0)
     arel (9.0.0)
-    babosa (1.0.4)
+    babosa (2.0.0)
     bindex (0.8.1)
     bootsnap (1.9.3)
       msgpack (~> 1.0)
@@ -171,11 +171,11 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry (~> 2.1)
-  babosa (~> 1.0, >= 1.0.2)
+  babosa (~> 2.0)
   bootsnap (>= 1.1.0)
   byebug
   coffee-rails (~> 4.2)
-  friendly_id (~> 5.1)
+  friendly_id (~> 5.4.0)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)

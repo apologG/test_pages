@@ -9,15 +9,16 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new
+    @page = Page.new(parent_id: params[:parent_id])
   end
 
   def create
     @page = Page.new(page_params)
 
     if @page.save
-      redirect_to page_path(@page)
+      redirect_to subpage_path(@page)
     else
+      flash[:error] = "Contact failed to be created."
       render :new
     end
   end
@@ -26,16 +27,22 @@ class PagesController < ApplicationController
   end
 
   def update
+    if @page.update(page_params)
+      redirect_to subpage_path(@page)
+    else
+      render :edit
+    end
   end
 
   private
 
   def set_page
-    @page = Page.friendly.find(params[:id])
+    p params[:path]
+    @page = Page.friendly.find(params[:slug])
   end
 
   def page_params
-    params.require(:page).permit(:name, :title, :content)
+    params.require(:page).permit(:name, :title, :content, :parent_id)
   end
 
 end

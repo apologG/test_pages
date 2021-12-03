@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  root to: 'pages#index'
 
-  root "pages#index"
-  resources :pages
+  get '/add', to: 'pages#new'
+  get '/*slug/add', to: 'pages#new', as: :new_subpage
+  get '/*slug/edit', to: 'pages#edit', as: :edit_subpage
+  get '/*slug', to: 'pages#show', as: :subpage
+  patch '/*slug', to: 'pages#update'
+  put '/*slug', to: 'pages#update'
+
+  resources :pages, path: "", path_names: { new: 'add' }, except: [:delete]
 
 end

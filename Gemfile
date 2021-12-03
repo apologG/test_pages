@@ -51,8 +51,8 @@ group :development do
 end
 
 gem 'ancestry', '~> 2.1'
-gem 'friendly_id', '~> 5.1'
-gem 'babosa', '~> 1.0', '>= 1.0.2'
+gem 'friendly_id', '~> 5.4.0'
+gem 'babosa', '~> 2.0'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

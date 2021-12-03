@@ -47,6 +47,13 @@
 - комментирование кода
 - безопасность кода
 - дизайн не важен
-
 ___
 # Запуск приложения:
+ruby - 2.6.6, rails - 5.2.6
+```
+git clone https://github.com/apologG/test_pages
+cd test_pages
+bundle install
+rake db:migrate
+bundle exec rails s
+```

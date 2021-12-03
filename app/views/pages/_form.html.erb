@@ -1,13 +1,11 @@
 <%= form_for @page do |form| %>
-  <% if @page.errors.any? %>
-    <% @page.errors.full_messages.each do |message| %>
-      <<%= message %>
-    <% end %>
-  <% end %>
-
-  <%= form.label :name %></br>
-  <%= form.text_field :name %></br>
-
+<%= render partial: 'layouts/form_errors', locals: {model: @page} %>
+  
+  <%= form.hidden_field :parent_id %>
+  <% if @page.new_record?  %>
+    <%= form.label :name %></br>
+    <%= form.text_field :name %></br>
+  <%end %>
   <%= form.label :title %></br>
   <%= form.text_field :title %></br>
 
