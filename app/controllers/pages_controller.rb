@@ -37,7 +37,6 @@ class PagesController < ApplicationController
   private
 
   def set_page
-    p params[:path]
     @page = Page.friendly.find(params[:slug])
   end
 
