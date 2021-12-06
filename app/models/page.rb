@@ -10,7 +10,12 @@ class Page < ApplicationRecord
   validates :content, presence: true
  
   def normalize_friendly_id(input)
-    input.to_s.to_slug.normalize(transliterations: :russian).to_s  
+    name_as_slug  = input.to_s.to_slug.normalize(transliterations: :russian).to_s  
+    if parent.present?
+      self.slug = [parent.slug, (slug.blank? ? name_as_slug  : slug.split('/').last)].join('/')
+    else
+      self.slug = name_as_slug
+    end
   end
 
 end
